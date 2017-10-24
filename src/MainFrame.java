@@ -1,10 +1,10 @@
-
     import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+    import java.util.Random;
 
     public class MainFrame extends JFrame {
         private Container cp;
@@ -12,9 +12,18 @@ import java.awt.event.WindowEvent;
         private JMenuItem jMenuItemGLoto = new JMenuItem("Loto");
         private JMenuBar jmb = new JMenuBar();
         private  JMenu jmf = new JMenu("File");
+        private  JMenu jms = new JMenu("Set");
+        private  JMenu jmg = new JMenu("Game");
+        private  JMenu jma = new JMenu("About");
+
+        private  Container jlfCP;
         private  JInternalFrame jInternalFrame = new JInternalFrame();
         private  JDesktopPane jdp = new JDesktopPane();
         private  JPanel jpn = new JPanel(new GridLayout(3,3));
+        private  JLabel jlbs[] = new JLabel[6];
+        private  int data[] = new int[6];
+        private Random rnd = new Random(System.currentTimeMillis());
+
         private  JTextField jtf = new JTextField();
         private  JButton jbtns[] = new JButton[9];
         private  LoginFrame loginFrame;
@@ -29,8 +38,11 @@ import java.awt.event.WindowEvent;
             this.setJMenuBar(jmb);
             this.setContentPane(jdp);
             jmb.add(jmf);
+            jmb.add(jms);
+            jmb.add(jmg);
+            jmb.add(jma);
             jmf.add(jMenuItemFEixt);
-            jmf.add(jMenuItemGLoto);
+            jmg.add(jMenuItemGLoto);
             jInternalFrame.setBounds(0,0,200,80);
             jMenuItemGLoto.addActionListener(new ActionListener() {
                 @Override
